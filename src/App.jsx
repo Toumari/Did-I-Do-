@@ -76,6 +76,8 @@ function App() {
         return task;
       });
     });
+    addToLocalStorage(tasks);
+    handleLastCompletedDate();
   };
 
   const taskList = renderTasks();
