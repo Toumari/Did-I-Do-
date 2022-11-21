@@ -1,0 +1,47 @@
+.newTaskInput__input {
+    width: 80%;
+    height: 50px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0 1em;
+    padding: 0.5em;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #333;
+    background-color: #fff;
+    
+}
+
+.newTaskInput__button {
+    width: 20%;
+    height: 52px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 0.5em;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+}
+
+
+
+.newTaskInput__button:hover {
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .newTaskInput__input {
+        width: 100%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .newTaskInput__button {
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+}

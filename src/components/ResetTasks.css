@@ -1,0 +1,35 @@
+.reset__button { 
+    
+    bottom: 20px;
+    background-color: #9a2820;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 80%;
+    
+}
+
+.reset__button:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .reset__button {
+        width: 40%;
+    }
+}
+
+@media (min-width: 900px) {
+    .reset__button {
+        width: 20%;
+    }
+}
+

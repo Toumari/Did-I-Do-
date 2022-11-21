@@ -1,0 +1,14 @@
+.lastCompletedDate {
+    font-size: 1rem;
+    color: #999;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.lastCompletedDate__date {
+    display: inline-block;
+    margin-top: .5em;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 700;
+}
