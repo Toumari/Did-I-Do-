@@ -93,6 +93,8 @@ function App() {
     );
   }, [tasks]);
 
+  const tasksCompleted = tasks.filter((task) => task.completed === true).length;
+
   return (
     <div className="App">
       <h1 className="app__title">Did I do?</h1>
@@ -103,6 +105,9 @@ function App() {
         <NewTaskInput createNewTask={createNewTaskHandler} tasks={tasks} />
       </div>
       <div className="app__tasks">{taskList}</div>
+      <h1 className="app__tasks__completed">
+        Total Tasks Completed: {tasksCompleted} / {tasks.length}
+      </h1>
       <div className="last__completedDate">
         <LastCompletedDate date={lastCompletedDate} />
       </div>
