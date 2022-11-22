@@ -7,7 +7,11 @@
 
 .App {
   min-height: 100vh;
-  background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
+  background-image: url("https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369&q=80"), linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
   display: flex;
   flex-direction: column;
   padding: 20px 20px;
