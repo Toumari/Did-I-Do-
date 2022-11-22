@@ -19,7 +19,7 @@ function App() {
   const [lastCompletedDate, setLastCompletedDate] = React.useState(
     window.localStorage.getItem("lastCompletedDate")
       ? JSON.parse(window.localStorage.getItem("lastCompletedDate"))
-      : ""
+      : "No Activity Yet"
   );
 
   const addToLocalStorage = (tasks) => {
@@ -108,16 +108,23 @@ function App() {
           <NewTaskInput createNewTask={createNewTaskHandler} tasks={tasks} />
         </div>
         <div className="app__tasks">{taskList}</div>
-        <h1 className="app__tasks__completed">
-          Total Tasks Completed: {tasksCompleted} / {tasks.length}
-        </h1>
-        <div className="last__completedDate">
-          <LastCompletedDate date={lastCompletedDate} />
-        </div>
-        <div className="app__task__options">
-          <ResetDailyTasks resetTasksDaily={setTasks} render={renderTasks} />
-          <ResetTasks resetTasks={setTasks} />
-        </div>
+        {tasks.length > 0 && (
+          <div className="app__resetTasks">
+            <h1 className="app__tasks__completed">
+              Total Tasks Completed: {tasksCompleted} / {tasks.length}
+            </h1>
+            <div className="last__completedDate">
+              <LastCompletedDate date={lastCompletedDate} />
+            </div>
+            <div className="app__task__options">
+              <ResetDailyTasks
+                resetTasksDaily={setTasks}
+                render={renderTasks}
+              />
+              <ResetTasks resetTasks={setTasks} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
