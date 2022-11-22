@@ -1,4 +1,4 @@
-import "./newTaskInput.css";
+import "./NewTaskInput.css";
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
