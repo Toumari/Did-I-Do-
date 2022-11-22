@@ -5,6 +5,7 @@ import Task from "./components/Task";
 import ResetTasks from "./components/ResetTasks";
 import ResetDailyTasks from "./components/ResetDailyTasks";
 import LastCompletedDate from "./components/LastCompletedDate";
+import TimeNow from "./components/TimeNow";
 import { nanoid } from "nanoid";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -97,6 +98,7 @@ function App() {
 
   return (
     <div className="App">
+      <TimeNow />
       <h1 className="app__title">Did I do?</h1>
       <p className="app__subtitle">
         Enter your daily checks, check them as you go!
