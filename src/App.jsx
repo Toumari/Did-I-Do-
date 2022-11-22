@@ -98,7 +98,6 @@ function App() {
 
   return (
     <div className="App">
-      <TimeNow />
       <h1 className="app__title">Did I do?</h1>
       <p className="app__subtitle">
         Enter your daily checks, check them as you go!
