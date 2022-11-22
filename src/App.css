@@ -39,9 +39,9 @@
 .app__tasks {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: 1em;
+  height: 60vh;
+  overflow-y: scroll;
 }
 
 .app__task__options {
