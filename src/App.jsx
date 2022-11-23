@@ -29,7 +29,11 @@ function App() {
       : ""
   );
 
-  const [nameChangeState, setNameChangeState] = React.useState(false);
+  const [nameChangeState, setNameChangeState] = React.useState(
+    window.localStorage.getItem("nameChangeState")
+      ? JSON.parse(window.localStorage.getItem("nameChangeState"))
+      : true
+  );
 
   let nameVal = "";
 
@@ -105,6 +109,7 @@ function App() {
       window.localStorage.setItem("name", JSON.stringify(nameVal));
       console.log(name);
       setNameChangeState(false);
+      window.localStorage.setItem("nameChangeState", JSON.stringify(false));
     }
   };
 
@@ -112,6 +117,7 @@ function App() {
     console.log("changed");
     console.log("NameVal is: " + nameVal);
     setNameChangeState(true);
+    window.localStorage.setItem("nameChangeState", JSON.stringify(true));
   };
 
   const taskList = renderTasks();
@@ -135,26 +141,25 @@ function App() {
         <TimeNow handleNameChange={handleNameChange} />
 
         <div className="App">
-          {name.length === 0 ||
-            (nameChangeState === true && (
-              <div className="name__input">
-                <h1>Enter your name to begin:</h1>
-                <input
-                  className="name__input__field"
-                  type="text"
-                  placeholder="Enter your name"
-                  onChange={(e) => (nameVal = e.target.value)}
-                />
-                <div
-                  className="app__name__submit__btn"
-                  onClick={(event) => {
-                    handleNameSet();
-                  }}
-                >
-                  Submit
-                </div>
+          {nameChangeState === true && (
+            <div className="name__input">
+              <h1>Enter your name to begin:</h1>
+              <input
+                className="name__input__field"
+                type="text"
+                placeholder="Enter your name"
+                onChange={(e) => (nameVal = e.target.value)}
+              />
+              <div
+                className="app__name__submit__btn"
+                onClick={(event) => {
+                  handleNameSet();
+                }}
+              >
+                Submit
               </div>
-            ))}
+            </div>
+          )}
           {name.length > 0 && !nameChangeState && (
             <div className="">
               <Title name={name} />
