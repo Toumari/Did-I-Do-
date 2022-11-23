@@ -17,7 +17,7 @@ export default function TimeNow(props) {
 
   return (
     <div className="timeNow">
-      <p className="timeNow__text">Current Time: {time}</p>
+      <p className="timeNow__text">{time}</p>
       <p onClick={props.handleNameChange} className="timeNow__change__name">
         Change Name
       </p>
