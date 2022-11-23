@@ -3,8 +3,6 @@
     height: 50px;
     border: none;
     border-top-left-radius: 5px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px !important;
     border-bottom-left-radius: 5px;
     padding: 0.5em;
     font-size: 1.2em;
@@ -18,11 +16,9 @@
     width: 20%;
     height: 50px;
     border: none;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 0px !important;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
     padding: 0.5em;
+    margin-top: .5em;
     font-size: 1.2em;
     font-weight: 400;
     color: #fff;
@@ -37,15 +33,10 @@
 @media (min-width: 768px) {
     .newTaskInput__input {
         width: 100%;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-top-right-radius: 5px;
+        border-radius: 5px;
     }
     .newTaskInput__button {
         width: 100%;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        border-top-right-radius: 0px;
-        border-top-left-radius: 0px;
+        border-radius: 5px;
     }
 }
