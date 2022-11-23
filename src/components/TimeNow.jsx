@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./TimeNow.css";
 
-export default function TimeNow() {
+export default function TimeNow(props) {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
@@ -18,6 +18,9 @@ export default function TimeNow() {
   return (
     <div className="timeNow">
       <p className="timeNow__text">Current Time: {time}</p>
+      <p onClick={props.handleNameChange} className="timeNow__change__name">
+        Change Name
+      </p>
     </div>
   );
 }

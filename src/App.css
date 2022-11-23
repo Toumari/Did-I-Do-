@@ -40,6 +40,52 @@
   padding-bottom: 1em;
 }
 
+.name__input {
+  display: block;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: .7rem;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+
+.name__input__field {
+  width: 80%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1em;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #333;
+  background-color: #fff;
+}
+
+.app__name__submit__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  height: 50px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #fff;
+  background-color: rgb(67, 102, 191);
+  cursor: pointer;
+}
+
+.app__name__submit__btn:hover, .app__name__submit__btn:focus {
+  background-color: rgb(44, 66, 122);
+}
+
 .app__tasks {
   display: flex;
   flex-direction: column;
@@ -87,4 +133,16 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media only screen and (min-width: 768px) {
+  .name__input__field {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .app__title {
+    padding-top: 100px;
+  }
 }

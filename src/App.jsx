@@ -5,6 +5,7 @@ import Task from "./components/Task";
 import ResetTasks from "./components/ResetTasks";
 import ResetDailyTasks from "./components/ResetDailyTasks";
 import LastCompletedDate from "./components/LastCompletedDate";
+import Title from "./components/Title";
 import TimeNow from "./components/TimeNow";
 import { nanoid } from "nanoid";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -21,6 +22,16 @@ function App() {
       ? JSON.parse(window.localStorage.getItem("lastCompletedDate"))
       : "No Activity Yet"
   );
+
+  const [name, setName] = React.useState(
+    window.localStorage.getItem("name")
+      ? JSON.parse(window.localStorage.getItem("name"))
+      : ""
+  );
+
+  const [nameChangeState, setNameChangeState] = React.useState(false);
+
+  let nameVal = "";
 
   const addToLocalStorage = (tasks) => {
     window.localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -81,6 +92,28 @@ function App() {
     handleLastCompletedDate();
   };
 
+  const handleNameSet = () => {
+    console.log("NameVal is: " + nameVal);
+    if (
+      nameVal.trim() === "" ||
+      nameVal.trim() === null ||
+      nameVal.length > 20
+    ) {
+      alert("Please enter a valid name");
+    } else {
+      setName(nameVal);
+      window.localStorage.setItem("name", JSON.stringify(nameVal));
+      console.log(name);
+      setNameChangeState(false);
+    }
+  };
+
+  const handleNameChange = (event) => {
+    console.log("changed");
+    console.log("NameVal is: " + nameVal);
+    setNameChangeState(true);
+  };
+
   const taskList = renderTasks();
 
   useEffect(() => {
@@ -98,33 +131,60 @@ function App() {
 
   return (
     <div className="">
-      <TimeNow />
-      <div className="App">
-        <h1 className="app__title">Did I do?</h1>
-        <p className="app__subtitle">
-          Enter your daily checks, check them as you go!
-        </p>
-        <div className="app__newTaskInput">
-          <NewTaskInput createNewTask={createNewTaskHandler} tasks={tasks} />
+      <div className="container">
+        <TimeNow handleNameChange={handleNameChange} />
+
+        <div className="App">
+          {name.length === 0 ||
+            (nameChangeState === true && (
+              <div className="name__input">
+                <h1>Enter your name to begin:</h1>
+                <input
+                  className="name__input__field"
+                  type="text"
+                  placeholder="Enter your name"
+                  onChange={(e) => (nameVal = e.target.value)}
+                />
+                <div
+                  className="app__name__submit__btn"
+                  onClick={(event) => {
+                    handleNameSet();
+                  }}
+                >
+                  Submit
+                </div>
+              </div>
+            ))}
+          {name.length > 0 && !nameChangeState && (
+            <div className="">
+              <Title name={name} />
+              <div className="app__newTaskInput">
+                <NewTaskInput
+                  createNewTask={createNewTaskHandler}
+                  tasks={tasks}
+                />
+              </div>
+              <div className="app__tasks">{taskList}</div>
+            </div>
+          )}
+          {tasks.length > 0 && !nameChangeState && (
+            <div className="app__resetTasks">
+              <h1 className="app__tasks__completed">
+                Total Tasks Completed: {tasksCompleted} / {tasks.length}
+              </h1>
+              <div className="last__completedDate">
+                <LastCompletedDate date={lastCompletedDate} />
+              </div>
+              <div className="app__task__options">
+                <ResetDailyTasks
+                  resetTasksDaily={setTasks}
+                  render={renderTasks}
+                />
+                <ResetTasks resetTasks={setTasks} />
+              </div>
+            </div>
+          )}
         </div>
-        <div className="app__tasks">{taskList}</div>
-        {tasks.length > 0 && (
-          <div className="app__resetTasks">
-            <h1 className="app__tasks__completed">
-              Total Tasks Completed: {tasksCompleted} / {tasks.length}
-            </h1>
-            <div className="last__completedDate">
-              <LastCompletedDate date={lastCompletedDate} />
-            </div>
-            <div className="app__task__options">
-              <ResetDailyTasks
-                resetTasksDaily={setTasks}
-                render={renderTasks}
-              />
-              <ResetTasks resetTasks={setTasks} />
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
