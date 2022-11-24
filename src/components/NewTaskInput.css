@@ -9,14 +9,18 @@
     font-weight: 400;
     color: #333;
     background-color: #fff;
-    
+}
+
+.newTaskInput__input:focus, .newTaskInput__input:active {
+    outline: none;
 }
 
 .newTaskInput__button {
     width: 20%;
     height: 50px;
     border: none;
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: 0.5em;
     margin-top: .5em;
     font-size: 1.2em;
@@ -26,7 +30,7 @@
     cursor: pointer;
 }
 
-.newTaskInput__button:hover {
+.newTaskInput__button:hover, .newTaskInput__button:focus {
     background-color: #8FA688;
 }
 
