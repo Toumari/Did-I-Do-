@@ -22,12 +22,12 @@
     font-size: 1.2em;
     font-weight: 400;
     color: #fff;
-    background-color: rgb(67, 102, 191);
+    background-color: #9FB798;
     cursor: pointer;
 }
 
 .newTaskInput__button:hover {
-    background-color: rgb(44, 66, 122);
+    background-color: #8FA688;
 }
 
 @media (min-width: 768px) {

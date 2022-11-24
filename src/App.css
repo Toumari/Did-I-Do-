@@ -7,10 +7,7 @@
 
 
 .App {
-  background: #232526;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #053225; 
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
@@ -24,14 +21,14 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
 }
 
 .app__title {
-  color: #fff;
+  color: #EEEEFF;
   font-size: 1.75rem;
   text-align: center;
   font-weight: 700;
 }
 
 .app__subtitle {
-  color: #fff;
+  color: #EEEEFF;
   font-size: 1.1rem;
   text-align: center;
   padding-bottom: 1em;
@@ -46,7 +43,7 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
 
 .name__input {
   display: block;
-  color: #fff;
+  color: #EEEEFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +63,7 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
   font-size: 1.2em;
   font-weight: 400;
   color: #333;
-  background-color: #fff;
+  background-color: #EEEEFF;
 }
 
 .city__input__field {
@@ -79,7 +76,7 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
   font-size: 1.2em;
   font-weight: 400;
   color: #333;
-  background-color: #fff;
+  background-color: #EEEEFF;
 }
 
 .app__name__submit__btn {
@@ -94,13 +91,13 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
   padding: 0.5em;
   font-size: 1.2em;
   font-weight: 400;
-  color: #fff;
-  background-color: rgb(67, 102, 191);
+  color: #EEEEFF;
+  background-color: #9FB798;
   cursor: pointer;
 }
 
 .app__name__submit__btn:hover, .app__name__submit__btn:focus {
-  background-color: rgb(44, 66, 122);
+  background-color: #8FA688;
 }
 
 .app__tasks {
@@ -132,7 +129,7 @@ background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, F
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #EEEEFF;
   text-align: center;
 }
 
@@ -150,7 +147,7 @@ footer{
   left: 0;
   bottom: 10px; 
   text-align: center;
-  color: #fff
+  color: #EEEEFF
 }
 
 
