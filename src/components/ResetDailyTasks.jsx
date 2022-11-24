@@ -12,7 +12,7 @@ export default function ResetTasks(props) {
 
   return (
     <div onClick={handleReset} className="reset__daily__button">
-      Reset Tasks For The Day
+      Reset Tasks
     </div>
   );
 }

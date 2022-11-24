@@ -8,7 +8,7 @@ export default function ResetTasks(props) {
 
   return (
     <div onClick={handleReset} className="reset__button">
-      Delete All Tasks
+      Delete Tasks
     </div>
   );
 }
