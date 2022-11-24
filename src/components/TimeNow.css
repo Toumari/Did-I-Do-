@@ -1,20 +1,30 @@
 
-.timeNow__text {
-    display: none;
+
+.timeNow {
+    display: block;
+    top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-bottom: 10px;
+    height: auto;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
 }
+
 
 .timeNow__change__name {
     font-size: .9rem;
     color: rgb(224, 225, 225);
     cursor: pointer;
-    position: absolute;
-    top: 20px;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     text-decoration: underline;
-    left: 50%;
-    transform: translateX(-50%);
+   
 }
 
 .timeNow__change__name:hover {
@@ -22,30 +32,14 @@
 }
 
 @media only screen and (min-width: 768px) {
-.timeNow {
-    display: block;
-    position: absolute;
-    top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    padding-bottom: 10px;
-    height: auto;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-}
+
 
 .timeNow__text {
     display: block;
-    position: absolute;
     top: 10px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    padding-bottom: 10px;
-    height: auto;
     font-size: 1.5em;
     font-weight: bold;
     color: #fff;
@@ -56,12 +50,9 @@
     font-size: .9rem;
     color: rgb(231, 232, 234);
     cursor: pointer;
-    position: absolute;
-    top: 55px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+   text-align: center;
+    text-decoration: underline;
+    margin: auto;
 }
 }
 
@@ -71,7 +62,5 @@
         top: 0px;
     }
 
-    .timeNow__change__name {
-        top: 40px;
-    }
+  
   }

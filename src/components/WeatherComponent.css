@@ -1,0 +1,18 @@
+.weather__change__location {
+    font-size: 1rem;
+    color: rgb(224, 225, 225);
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.weather__temp__text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.weather__city {
+    padding-top: .5em;
+}

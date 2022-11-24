@@ -5,6 +5,7 @@ import Task from "./components/Task";
 import ResetTasks from "./components/ResetTasks";
 import ResetDailyTasks from "./components/ResetDailyTasks";
 import LastCompletedDate from "./components/LastCompletedDate";
+import WeatherComponent from "./components/WeatherComponent";
 import Title from "./components/Title";
 import TimeNow from "./components/TimeNow";
 import { nanoid } from "nanoid";
@@ -29,6 +30,12 @@ function App() {
       : ""
   );
 
+  const [city, setCity] = React.useState(
+    window.localStorage.getItem("city")
+      ? JSON.parse(window.localStorage.getItem("city"))
+      : ""
+  );
+
   const [nameChangeState, setNameChangeState] = React.useState(
     window.localStorage.getItem("nameChangeState")
       ? JSON.parse(window.localStorage.getItem("nameChangeState"))
@@ -36,6 +43,7 @@ function App() {
   );
 
   let nameVal = "";
+  let cityVal = "";
 
   const addToLocalStorage = (tasks) => {
     window.localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -98,18 +106,36 @@ function App() {
 
   const handleNameSet = () => {
     console.log("NameVal is: " + nameVal);
+    console.log("CityVal is: " + cityVal);
     if (
       nameVal.trim() === "" ||
       nameVal.trim() === null ||
-      nameVal.length > 20
+      nameVal.length > 20 ||
+      cityVal.trim() === "" ||
+      cityVal.trim() === null ||
+      cityVal.length > 20
     ) {
-      alert("Please enter a valid name");
+      alert("Please enter a valid name & city");
     } else {
       setName(nameVal);
+      setCity(cityVal);
       window.localStorage.setItem("name", JSON.stringify(nameVal));
-      console.log(name);
+      window.localStorage.setItem("city", JSON.stringify(cityVal));
       setNameChangeState(false);
       window.localStorage.setItem("nameChangeState", JSON.stringify(false));
+    }
+  };
+
+  const handleCitySet = () => {
+    if (
+      cityVal.trim() === "" ||
+      cityVal.trim() === null ||
+      cityVal.length > 20
+    ) {
+      alert("Please enter a valid city");
+    } else {
+      setCity(cityVal);
+      window.localStorage.setItem("city", JSON.stringify(cityVal));
     }
   };
 
@@ -137,59 +163,70 @@ function App() {
 
   return (
     <div className="">
-      <div className="container">
-        <TimeNow handleNameChange={handleNameChange} />
-
-        <div className="App">
-          {nameChangeState === true && (
-            <div className="name__input">
-              <h1>Enter your name to begin:</h1>
-              <input
-                className="name__input__field"
-                type="text"
-                placeholder="Enter your name"
-                onChange={(e) => (nameVal = e.target.value)}
-              />
-              <div
-                className="app__name__submit__btn"
-                onClick={(event) => {
-                  handleNameSet();
-                }}
-              >
-                Submit
-              </div>
-            </div>
-          )}
-          {name.length > 0 && !nameChangeState && (
-            <div className="">
-              <Title name={name} />
-              <div className="app__newTaskInput">
-                <NewTaskInput
-                  createNewTask={createNewTaskHandler}
-                  tasks={tasks}
-                />
-              </div>
-              <div className="app__tasks">{taskList}</div>
-            </div>
-          )}
-          {tasks.length > 0 && !nameChangeState && (
-            <div className="app__resetTasks">
-              <h1 className="app__tasks__completed">
-                Total Tasks Completed: {tasksCompleted} / {tasks.length}
-              </h1>
-              <div className="last__completedDate">
-                <LastCompletedDate date={lastCompletedDate} />
-              </div>
-              <div className="app__task__options">
-                <ResetDailyTasks
-                  resetTasksDaily={setTasks}
-                  render={renderTasks}
-                />
-                <ResetTasks resetTasks={setTasks} />
-              </div>
-            </div>
-          )}
+      <div className="App">
+        <div className="top__container">
+          <TimeNow handleNameChange={handleNameChange} />
         </div>
+        {nameChangeState === true && (
+          <div className="name__input">
+            <h1>Enter your name to begin:</h1>
+            <input
+              className="name__input__field"
+              type="text"
+              placeholder="Enter your name"
+              onChange={(e) => (nameVal = e.target.value)}
+            />
+            <input
+              className="city__input__field"
+              type="text"
+              placeholder="Enter your city"
+              onChange={(e) => (cityVal = e.target.value)}
+            />
+            <div
+              className="app__name__submit__btn"
+              onClick={(event) => {
+                handleNameSet();
+                handleCitySet();
+              }}
+            >
+              Submit
+            </div>
+          </div>
+        )}
+        {name.length > 0 && !nameChangeState && (
+          <div className="">
+            <Title name={name} />
+            <div className="app__newTaskInput">
+              <NewTaskInput
+                createNewTask={createNewTaskHandler}
+                tasks={tasks}
+              />
+            </div>
+            <div className="app__tasks">{taskList}</div>
+          </div>
+        )}
+        {tasks.length > 0 && !nameChangeState && (
+          <div className="app__resetTasks">
+            <h1 className="app__tasks__completed">
+              Total Tasks Completed: {tasksCompleted} / {tasks.length}
+            </h1>
+            <div className="last__completedDate">
+              <LastCompletedDate date={lastCompletedDate} />
+            </div>
+            <div className="app__task__options">
+              <ResetDailyTasks
+                resetTasksDaily={setTasks}
+                render={renderTasks}
+              />
+              <ResetTasks resetTasks={setTasks} />
+            </div>
+          </div>
+        )}
+        {name.length > 0 && !nameChangeState && (
+          <footer>
+            <WeatherComponent city={city} onClick={handleNameChange} />
+          </footer>
+        )}
       </div>
     </div>
   );

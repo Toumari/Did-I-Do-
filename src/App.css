@@ -5,30 +5,31 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
 .App {
-  min-height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369&q=80"), linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 20px 20px;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .app__title {
   color: #fff;
   font-size: 2rem;
   text-align: center;
-  padding-top: 50px;
   font-weight: 700;
 }
 
 .app__subtitle {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-align: center;
   padding-bottom: 1em;
   font-weight: 400;
@@ -53,6 +54,19 @@
 }
 
 .name__input__field {
+  width: 80%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1em;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #333;
+  background-color: #fff;
+}
+
+.city__input__field {
   width: 80%;
   height: 50px;
   border: none;
@@ -99,19 +113,37 @@
   justify-content: center;
   align-items: center;
   padding-top: 1em;
+  padding-bottom: 1em;
   column-gap: 15px;
   width: 100%;
 }
 
 .app__tasks__completed {
   display: flex;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-block: .5em;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
   text-align: center;
+}
+
+.top__container {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+footer{
+  height: 75px;
+  width:100%;
+  left: 0;
+  bottom: 10px; 
+  text-align: center;
+  color: #fff
 }
 
 
@@ -139,10 +171,12 @@
   .name__input__field {
     width: 20%;
   }
+
+  .city__input__field {
+    width: 20%;
+  }
 }
 
 @media only screen and (max-height: 700px) {
-  .app__title {
-    padding-top: 100px;
-  }
+
 }
