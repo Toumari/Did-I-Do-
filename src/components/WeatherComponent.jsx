@@ -14,7 +14,7 @@ export default function WeatherComponent(props) {
     fetch(`https://express-app-test-jackimas141.herokuapp.com/${props.city}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.cod === "200") {
+        if (data.cod === 200) {
           console.log(Math.floor(data.main.temp));
           setWeather({
             cityName: data.name,
