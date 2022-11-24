@@ -62,7 +62,7 @@ function App() {
       window.localStorage.setItem("tasks", JSON.stringify(tasks));
       return prevTasks.filter((task) => task.id !== taskToDelete);
     });
-    console.log("Deleted!");
+
     handleLastCompletedDate();
   };
 
@@ -105,8 +105,6 @@ function App() {
   };
 
   const handleNameSet = () => {
-    console.log("NameVal is: " + nameVal);
-    console.log("CityVal is: " + cityVal);
     if (
       nameVal.trim() === "" ||
       nameVal.trim() === null ||
@@ -140,8 +138,6 @@ function App() {
   };
 
   const handleNameChange = (event) => {
-    console.log("changed");
-    console.log("NameVal is: " + nameVal);
     setNameChangeState(true);
     window.localStorage.setItem("nameChangeState", JSON.stringify(true));
   };
@@ -164,12 +160,14 @@ function App() {
   return (
     <div className="">
       <div className="App">
-        <div className="top__container">
-          <TimeNow handleNameChange={handleNameChange} />
-        </div>
+        {!nameChangeState && (
+          <div className="top__container">
+            <TimeNow handleNameChange={handleNameChange} />
+          </div>
+        )}
         {nameChangeState === true && (
           <div className="name__input">
-            <h1>Enter your name to begin:</h1>
+            <h1>Enter your details:</h1>
             <input
               className="name__input__field"
               type="text"
