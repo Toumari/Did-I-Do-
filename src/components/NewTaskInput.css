@@ -26,12 +26,12 @@
     font-size: 1.2em;
     font-weight: 400;
     color: #fff;
-    background-color: #9FB798;
+    background-color: #A3B18A;
     cursor: pointer;
 }
 
 .newTaskInput__button:hover, .newTaskInput__button:focus {
-    background-color: #8FA688;
+    background-color: #9FB798;
 }
 
 @media (min-width: 768px) {
